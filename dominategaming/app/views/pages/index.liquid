@@ -1,6 +1,9 @@
 ---
 title: Home page
 published: true
+cache_strategy: none
+response_type: text/html
+position: 0
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +25,11 @@ published: true
     {{ 'bootstrap.css' | stylesheet_tag }}
     {{ 'bootstrap-responsive.css' | stylesheet_tag }}
     {{ 'application.css' | stylesheet_tag }}
+    {{ 'jquery-slide-down-menu.css' | stylesheet_tag}}
+
+    <!-- Javascripts -->
+    {{ 'jquery-1.10.2.min.js' | javascript_tag }}
+    {{ 'jquery-slide-down-menu.js' | javascript_tag }}
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -46,37 +54,35 @@ published: true
 
       <hr>
 
-      {% block 'main' %}
+      {% block 'content' %}
 
       <div class="jumbotron">
-        <h1>Super awesome marketing speak!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <a class="btn btn-large btn-success icon-flag" href="#">Sign up today</a>
+        {% include dominate_gaming_banner %}
       </div>
 
       <hr>
 
       <div class="row-fluid marketing">
         <div class="span6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Articles</h4>
+          {% paginate contents.articles by 10 %}
+            {% for article in paginate.collection %}
+              <p>
+                <a href="articles/{{ article._permalink }}">{{ article.title }}</a> - {{ article.author._label }}
+              </p>
+            {% endfor %}
+          {% endpaginate %}
         </div>
 
         <div class="span6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Videos</h4>
+          {% paginate contents.videos by 10 %}
+            {% for video in paginate.collection %}
+              <p>
+                <a href="videos/{{ video._permalink }}">{{ video.title }}</a> - {{ video.uploader._label }}
+              </p>
+            {% endfor %}
+          {% endpaginate %}
         </div>
       </div>
 

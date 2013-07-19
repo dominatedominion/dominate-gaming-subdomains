@@ -1,0 +1,33 @@
+---
+name: Videos
+description: Individual video postings
+slug: videos
+label_field_name: title
+order_by: created_at
+fields:
+- title:
+    label: Title
+    type: string
+    hint: Short title will display as a heading, keep it short! around 40 characters
+    required: true
+- video_file:
+    label: Body
+    type: file
+    hint: File that will be shown in the video player
+    required: true
+- uploader:
+    label: Uploader
+    type: belongs_to
+    hint: the uploader of the video
+    required: true
+    class_name: uploaders
+    ui_enabled: true
+- post_date:
+    label: Post Date
+    type: date
+    hint: The date you enter will be used to determine the date this video should be posted
+    required: true
+- tags:
+    label: Tags
+    type: tags
+    hint: Tags used to search for relevant videos

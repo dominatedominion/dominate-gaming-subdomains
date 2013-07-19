@@ -1,0 +1,11 @@
+---
+- John Epperson:
+    _slug: johnepperson
+    full_name: John Epperson
+    email: j.epperson@verizon.net
+    unique_name: johnepperson
+- Rachel Epperson:
+    _slug: rachel-epperson
+    full_name: Rachel Epperson
+    email: racheldmueller@gmail.com
+    unique_name: rachelepperson

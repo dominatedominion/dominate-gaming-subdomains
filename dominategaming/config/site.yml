@@ -1,16 +1,8 @@
-# TODO: explain it
+---
 name: dominategaming
-
-# TODO: explain it
-# subdomain: sample
-
-# TODO: explain it
-# domains: [www.example.com, example.com]
-
-# TODO: explain it
 locales: [en]
-
-# TODO: explain it
+subdomain: dominategaming
+domains: [dominategaming.johnepperson.com]
 seo_title: dominategaming
-meta_keywords: "some meta keywords"
-meta_description: "some meta description"
+meta_keywords: some meta keywords
+meta_description: some meta description

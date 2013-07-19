@@ -1,0 +1,21 @@
+---
+title: Videos
+slug: videos
+handle: videos
+listed: true
+published: true
+cache_strategy: none
+response_type: text/html
+position: 1
+---
+{% extends 'parent' %}
+
+{% block 'content' %}
+
+{% for video in contents.videos %}
+  <p>
+    <a href="videos/{{ video._permalink }}">{{ video.title }}</a> - {{ video.author._label }}
+  </p>
+{% endfor %}
+
+{% endblock %}

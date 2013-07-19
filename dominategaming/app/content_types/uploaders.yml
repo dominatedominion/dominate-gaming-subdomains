@@ -1,0 +1,31 @@
+---
+name: Uploaders
+description: Uploaders of video postings
+slug: uploaders
+label_field_name: full_name
+order_by: 51e77431e22be16568000041
+fields:
+- full_name:
+    label: Full Name
+    type: string
+    hint: Full name of author
+    required: true
+- email:
+    label: Email
+    type: email
+    hint: Email address of author
+    required: true
+    unique: true
+- unique_name:
+    label: Unique Name
+    type: string
+    hint: unique name so authors can be uniquely identified
+    required: true
+    unique: true
+- videos:
+    label: Videos
+    type: has_many
+    hint: Videos uploaded by uploader
+    class_name: videos
+    inverse_of: uploader
+    ui_enabled: true
